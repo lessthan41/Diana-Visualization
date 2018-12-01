@@ -13,6 +13,9 @@
   <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
   <!-- Material Design icon font -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <!--getmdl-select-->
+  <link rel="stylesheet" href="mdl/getmdl-select-master/getmdl-select.min.css">
+  <script defer src="mdl/getmdl-select-master/getmdl-select.min.js"></script>
 
   <style>
     @import url('style.css');
@@ -23,11 +26,11 @@
 
 <body>
   <!-- Always shows a header, even in smaller screens. -->
-  <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
-    <header class="mdl-layout__header">
+  <div class="demo-layout-transparent mdl-layout mdl-js-layout mdl-layout--fixed-header">
+    <header class="mdl-layout__header mdl-layout__header--transparent">
       <div class="mdl-layout__header-row">
         <!-- Title -->
-        <span class="mdl-layout-title">校舍安全檢核系統</span>
+        <span class="mdl-layout-title" style="font-family:微軟正黑體">校舍安全檢核系統</span>
         <!-- Add spacer, to align navigation to the right -->
         <div class="mdl-layout-spacer"></div>
         <!-- Navigation. We hide it in small screens. -->
@@ -40,91 +43,99 @@
       <div class="page-content">
         <!-- Your content goes here -->
         <!-- Home Page -->
-        <div class="mdl-grid gridheight"><div class="mdl-cell mdl-cell--12-col"></div></div>
-        <div class="mdl-grid">
-          <div class="mdl-cell mdl-cell--3-col mdl-cell--2-col-tablet mdl-cell--1-col-phone"></div>
-          <div class="mdl-cell mdl-cell--6-col mdl-cell--4-col-tablet mdl-cell--2-col-phone">
-            <div class='section1'>
+        <div class="mdl-grid gridheight">
+          <div class="mdl-cell mdl-cell--12-col"></div>
+        </div>
+        <div class="section1">
+          <div class="mdl-grid">
+            <div class="mdl-cell mdl-cell--3-col mdl-cell--2-col-tablet mdl-cell--1-col-phone"></div>
+            <div class="mdl-cell mdl-cell--6-col mdl-cell--4-col-tablet mdl-cell--2-col-phone">
               <div class="title" id='text'>
-                <!-- masthead -->
-                <div id="hmasthead">
-                  <header class="masthead text-center d-flex">
-                    <div class="container my-auto">
-                      <div class="row">
-                        <div class="col-lg-10 mx-auto">
-                          <h1>
-                            <strong>校舍安全<br>檢核系統</strong>
-                          </h1>
-                          <hr>
-                        </div>
-                        <div class="col-lg-8 mx-auto">
-                          <p class="mb-5 text-masthead">
-                            <font size="5">2018年12月1日，我們很慘了。<br>我們希望可以超生。
-                          </p>
-                        </div>
-                      </div>
-                  </header>
-                </div>
+                <h1><strong>校舍安全檢核系統</strong></h1>
+                <hr size="8px" align="center" width="100%">
+                <font size="4" style="color:white">2018年12月1日，我們很慘了。<br>我們希望可以超生。</font>
+              </div>
+            </div>
+            <div class="mdl-cell mdl-cell--3-col mdl-cell--2-col-tablet mdl-cell--1-col-phone"></div>
+          </div>
+
+          <div class="section2">
+            <div class="mdl-grid">
+              <div class="mdl-cell mdl-cell--12-col">
+                <!-- Colored icon button -->
+                <a href="#events" style="text-decoration:none;">
+                  <center><button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored" style="font-family:微軟正黑體">
+                      <i class="material-icons">local_play</i> 依事件選擇
+                    </button>
+                </a>
+                <a href="#events" style="text-decoration:none;">
+                  <button class="mdl-button mdl-js-button mdl-button--raised  mdl-js-ripple-effect mdl-button--colored" style="font-family:微軟正黑體">
+                    <i class="material-icons">access_time</i> 依時間選擇
+                  </button>
+                </a>
+              </div>
+            </div>
+            <div class="mdl-grid gridheight">
+              <div class="mdl-cell mdl-cell--12-col"></div>
+            </div>
+          </div>
+
+          <div class="section3">
+            <div class="mdl-grid" name='events'>
+              <div class="mdl-cell mdl-cell--12-col">
+                <h5 align="center" style="font-family:微軟正黑體">依事件選擇：
+                  <!-- Simple Select -->
+                  <div class="mdl-textfield mdl-js-textfield getmdl-select">
+                    <input type="text" value="" class="mdl-textfield__input" id="sample1" readonly>
+                    <input type="hidden" value="" name="sample1">
+                    <label for="sample1" class="mdl-textfield__label">Events</label>
+                    <ul for="sample1" class="mdl-menu mdl-menu--bottom-left mdl-js-menu">
+                      <li class="mdl-menu__item" data-val="921">921</li>
+                      <li class="mdl-menu__item" data-val="123">123</li>
+                      <li class="mdl-menu__item" data-val="456">456</li>
+                    </ul>
+                  </div>
+                </h5>
+              </div>
+            </div>
+            <div class="mdl-grid">
+            <a id='events'></a>
+              <!-- Map -->
+              <div class="mdl-cell mdl-cell--6-col mdl-cell--8-col-tablet mdl-cell--4-col-phone">
+                <div id="map" class="map"></div>
+              </div>
+              <div class="mdl-cell mdl-cell--6-col mdl-cell--8-col-tablet mdl-cell--4-col-phone">
+                <!-- Table -->
+                <table class="mdl-data-table mdl-js-data-table mdl-data-table--unselectable mdl-shadow--2dp fullwidth">
+                  <thead>
+                    <tr>
+                      <th class="mdl-data-table__cell--non-numeric">Material</th>
+                      <th>Quantity</th>
+                      <th>Unit price</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td class="mdl-data-table__cell--non-numeric">Acrylic (Transparent)</td>
+                      <td>25</td>
+                      <td>$2.90</td>
+                    </tr>
+                    <tr>
+                      <td class="mdl-data-table__cell--non-numeric">Plywood (Birch)</td>
+                      <td>50</td>
+                      <td>$1.25</td>
+                    </tr>
+                    <tr>
+                      <td class="mdl-data-table__cell--non-numeric">Laminate (Gold on Blue)</td>
+                      <td>10</td>
+                      <td>$2.35</td>
+                    </tr>
+                  </tbody>
+                </table>
               </div>
             </div>
           </div>
-          <div class="mdl-cell mdl-cell--3-col mdl-cell--2-col-tablet mdl-cell--1-col-phone"></div>
         </div>
-
-        <div class=section2>
-          <div class="mdl-grid">
-            <div class="mdl-cell mdl-cell--12-col">
-              <!-- Colored icon button -->
-              <center><button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored">
-                  <i class="material-icons">local_play</i> 依事件選擇
-                </button>
-                <button class="mdl-button mdl-js-button mdl-button--raised  mdl-js-ripple-effect mdl-button--colored">
-                  <i class="material-icons">access_time</i> 依時間選擇
-                </button>
-            </div>
-          </div>
-          <div class="mdl-grid gridheight"><div class="mdl-cell mdl-cell--12-col"></div></div>
-        </div>
-
-        <div class=section3>
-          <div class="mdl-grid"><div class="mdl-cell mdl-cell--12-col"><h3 align="center">依事件選擇</h3></div></div>
-          <div class="mdl-grid">
-            <!-- Map -->
-            <div class="mdl-cell mdl-cell--6-col mdl-cell--8-col-tablet mdl-cell--4-col-phone">
-              <div id="map" class="map"></div>
-            </div>
-            <div class="mdl-cell mdl-cell--6-col mdl-cell--8-col-tablet mdl-cell--4-col-phone">
-              <!-- Table -->
-              <table class="mdl-data-table mdl-js-data-table mdl-data-table--unselectable mdl-shadow--2dp fullwidth">
-                <thead>
-                  <tr>
-                    <th class="mdl-data-table__cell--non-numeric">Material</th>
-                    <th>Quantity</th>
-                    <th>Unit price</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td class="mdl-data-table__cell--non-numeric">Acrylic (Transparent)</td>
-                    <td>25</td>
-                    <td>$2.90</td>
-                  </tr>
-                  <tr>
-                    <td class="mdl-data-table__cell--non-numeric">Plywood (Birch)</td>
-                    <td>50</td>
-                    <td>$1.25</td>
-                  </tr>
-                  <tr>
-                    <td class="mdl-data-table__cell--non-numeric">Laminate (Gold on Blue)</td>
-                    <td>10</td>
-                    <td>$2.35</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </div>
-      </div>
     </main>
   </div>
 
@@ -144,6 +155,19 @@
         center: ol.proj.fromLonLat([121, 23.8]),
         zoom: 7.5
       })
+    });
+  </script>
+
+  <script>
+    //scrolling
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+        });
+      });
     });
   </script>
 

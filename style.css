@@ -1,3 +1,14 @@
+/* background */
+.demo-layout-transparent {
+  background: url('./assets/background.jpg') center / cover;
+}
+.demo-layout-transparent .mdl-layout__header,
+.demo-layout-transparent .mdl-layout__drawer-button {
+  /* This background is dark, so we set text to white. Use 87% black instead if
+     your background is light. */
+  color: white;
+}
+
 /* Rules for sizing the icon. */
 .material-icons.md-18 {
   font-size: 18px;
@@ -27,16 +38,20 @@
 
 /* Height arrange */
 .gridheight {
-  height: 150px
+  height: 300px
 }
 
-/* Section1(title) */
-#hmasthead {
+.title {
   font-family: "微軟正黑體";
   text-align: center;
 }
 
-#text {
-  font-family: "微軟正黑體";
-  text-align: center;
+/* H1 color */
+h1 {
+    color: white;
+    font-family: "微軟正黑體";
+}
+
+.section3 {
+  background-color: #FFFFFF !important
 }
