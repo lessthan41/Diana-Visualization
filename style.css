@@ -33,7 +33,7 @@
 
 /* height full */
 .map {
-  height: 550px;
+  height: calc(100vh - 240px);
 }
 
 .title {
@@ -47,8 +47,27 @@ h1 {
     font-family: "微軟正黑體";
 }
 
-.section1 {
-  height: 100vh;
+/* view height 100% */
+.module {
+  height: 100vh; /* Use vh as a fallback for browsers that do not support Custom Properties */
+  height: calc(var(--vh, 1vh) * 100);
+  margin: 0 auto;
+  max-width: 100%;
+}
+
+/* view height 100% with header */
+.module_head {
+  height: calc(100vh - 70px); /* Use vh as a fallback for browsers that do not support Custom Properties */
+  margin: 0 auto;
+  max-width: 100%;
+}
+
+/* element view height 25% */
+.module25 {
+  align-items: center;
+  display: flex;
+  height: 25%;
+  justify-content: center;
 }
 
 .section2 {
