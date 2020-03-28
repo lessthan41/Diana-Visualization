@@ -1,173 +1,141 @@
 <!DOCTYPE html>
 <html lang="ch" dir="ltr">
-<!-- 123 -->
+
 <head>
   <meta charset="utf-8">
-
-  <!-- Map -->
-  <link rel="stylesheet" href="https://cdn.rawgit.com/openlayers/openlayers.github.io/master/en/v5.2.0/css/ol.css" type="text/css">
-  <script src="https://cdn.rawgit.com/openlayers/openlayers.github.io/master/en/v5.2.0/build/ol.js"></script>
-
-  <!-- Material Design Lite -->
+  <!-- Material Design Lite with icon font-->
   <script src="https://code.getmdl.io/1.3.0/material.min.js"></script>
   <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
-  <!-- Material Design icon font -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-  <!--getmdl-select-->
-  <link rel="stylesheet" href="mdl/getmdl-select-master/getmdl-select.min.css">
-  <script defer src="mdl/getmdl-select-master/getmdl-select.min.js"></script>
+
+  <!-- import semantic -->
+  <link rel="stylesheet" type="text/css" href="semantic/dist/semantic.min.css">
+  <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+  <script src="semantic/dist/semantic.min.js"></script>
+
+  <!-- import jquery -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+  <!-- import bootstrap -->
+  <link rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css' integrity='sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO' crossorigin='anonymous'>
+  <script src='https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js' integrity='sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy' crossorigin='anonymous'></script>
+
+  <!-- import ol -->
+  <link rel="stylesheet" href="https://cdn.rawgit.com/openlayers/openlayers.github.io/master/en/v5.3.0/css/ol.css" type="text/css">
+  <script src="https://openlayers.org/en/v4.6.5/build/ol.js"></script>
+
+  <title>校舍安全檢核系統</title>
 
   <style>
-    @import url('style.css');
+    @import 'style.css';
   </style>
 
-  <title></title>
+
 </head>
 
 <body>
   <!-- Always shows a header, even in smaller screens. -->
-  <div class="demo-layout-transparent mdl-layout mdl-js-layout mdl-layout--fixed-header">
-    <header class="mdl-layout__header mdl-layout__header--transparent">
+  <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+    <header class="mdl-layout__header">
       <div class="mdl-layout__header-row">
         <!-- Title -->
-        <span class="mdl-layout-title" style="font-family:微軟正黑體">校舍安全檢核系統</span>
-        <!-- Add spacer, to align navigation to the right -->
+        <span class="mdl-layout-title">校舍安全檢核系統</span>
         <div class="mdl-layout-spacer"></div>
-        <!-- Navigation. We hide it in small screens. -->
-        <nav class="mdl-navigation">
-          <a class="mdl-navigation__link" href=""><i class="material-icons">account_box</i></a>
-        </nav>
+        <span class="mdl-layout-title" id='network'>未連接至網路</span>
       </div>
     </header>
     <main class="mdl-layout__content">
       <div class="page-content">
         <!-- Your content goes here -->
-        <!-- Home Page -->
-        <div class="section1 module">
-          <div class="mdl-grid module25">
-            <div class="mdl-cell mdl-cell--12-col"></div>
-          </div>
-          <div class="mdl-grid">
-            <div class="mdl-cell mdl-cell--3-col mdl-cell--2-col-tablet mdl-cell--1-col-phone"></div>
-            <div class="mdl-cell mdl-cell--6-col mdl-cell--4-col-tablet mdl-cell--2-col-phone">
-              <div class="title" id='text'>
-                <h1><strong>校舍安全檢核系統</strong></h1>
-                <hr align="center" width="100%">
-                <font size="4" style="color:white">2018年12月1日，我們很慘了。<br>我們希望可以超生。</font>
-              </div>
-            </div>
-            <div class="mdl-cell mdl-cell--3-col mdl-cell--2-col-tablet mdl-cell--1-col-phone"></div>
-          </div>
-          <div class="mdl-grid">
-            <div class="mdl-cell mdl-cell--12-col">
-              <!-- Colored icon button -->
-              <a href="#events" style="text-decoration:none;">
-                <center><button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored" style="font-family:微軟正黑體">
-                    <i class="material-icons">local_play</i> 依事件選擇
-                  </button>
-              </a>
-              <a href="#events" style="text-decoration:none;">
-                <button class="mdl-button mdl-js-button mdl-button--raised  mdl-js-ripple-effect mdl-button--colored" style="font-family:微軟正黑體">
-                  <i class="material-icons">access_time</i> 依時間選擇
-                </button>
-              </a>
-            </div>
-          </div>
-          <div class="mdl-grid module25">
-            <div class="mdl-cell mdl-cell--12-col"></div>
-          </div>
-        </div>
 
-      <div class="section2 module_head">
-        <div class="mdl-grid" name='events'>
-          <div class="mdl-cell mdl-cell--12-col">
-            <h5 align="center" style="font-family:微軟正黑體">依事件選擇：
-              <!-- Simple Select -->
-              <div class="mdl-textfield mdl-js-textfield getmdl-select">
-                <input type="text" value="" class="mdl-textfield__input" id="sample1" readonly>
-                <input type="hidden" value="" name="sample1">
-                <label for="sample1" class="mdl-textfield__label">Events</label>
-                <ul for="sample1" class="mdl-menu mdl-menu--bottom-left mdl-js-menu">
-                  <li class="mdl-menu__item" data-val="921">921</li>
-                  <li class="mdl-menu__item" data-val="123">123</li>
-                  <li class="mdl-menu__item" data-val="456">456</li>
-                </ul>
-              </div>
-            </h5>
+          <div class="mdl-grid">
+          <div class="mdl-cell mdl-cell--6-col mdl-cell--8-col-tablet" id='section1-1'>
+            <!-- map -->
+            <div id="map" onmouseleave="del_interaction()" onmouseover="add_interaction()"></div>
+            <!-- Popup -->
+            <div id="popup"></div>
           </div>
-        </div>
-        <div class="mdl-grid">
-          <a id='events'></a>
-          <!-- Map -->
-          <div class="mdl-cell mdl-cell--6-col mdl-cell--8-col-tablet mdl-cell--4-col-phone">
-            <div id="map" class="map"></div>
-          </div>
-          <div class="mdl-cell mdl-cell--6-col mdl-cell--8-col-tablet mdl-cell--4-col-phone">
+          <!--------------------------------------------------->
+          <div class="mdl-cell mdl-cell--6-col mdl-cell--8-col-tablet" id='section1-2'>
+            <!-- dropdown -->
+            <!-- Simple Select -->
+            <div class="form-group" id='selectbar'>
+              <select class="form-control" id="sel" onchange="poke(featureName)">
+              </select>
+            </div>
+
             <!-- Table -->
-            <table class="mdl-data-table mdl-js-data-table mdl-data-table--unselectable mdl-shadow--2dp fullwidth">
-              <thead>
-                <tr>
-                  <th class="mdl-data-table__cell--non-numeric">Material</th>
-                  <th>Quantity</th>
-                  <th>Unit price</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td class="mdl-data-table__cell--non-numeric">Acrylic (Transparent)</td>
-                  <td>25</td>
-                  <td>$2.90</td>
-                </tr>
-                <tr>
-                  <td class="mdl-data-table__cell--non-numeric">Plywood (Birch)</td>
-                  <td>50</td>
-                  <td>$1.25</td>
-                </tr>
-                <tr>
-                  <td class="mdl-data-table__cell--non-numeric">Laminate (Gold on Blue)</td>
-                  <td>10</td>
-                  <td>$2.35</td>
-                </tr>
-              </tbody>
-            </table>
+            <!-- <div class='row'> -->
+              <table class="mdl-data-table mdl-js-data-table mdl-data-table--unselectable mdl-shadow--2dp" id='table1'>
+                <thead>
+                  <tr>
+                    <th class="mdl-data-table__cell--non-numeric">學校</th>
+                    <th>負責人</th>
+                    <th>電話</th>
+                    <th>填答與否</th>
+                    <th>等級評分</th>
+                    <th>詳細填答情形</th>
+                  </tr>
+                </thead>
+                <tbody>
+                </tbody>
+              </table>
+            <!-- </div> -->
+
           </div>
         </div>
       </div>
+    </main>
   </div>
-  </main>
+
+  <!----------------------------------------->
+
+  <!-- 跳出來的Table -->
+  <div class="modal fade bd-example-modal-lg" id='dialog1' tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-content">
+        <div class='modal-header'>
+          <table class="ui celled table" id="table2">
+            <thead>
+              <tr>
+                <th class="center aligned">問卷內容</th>
+                <th class="center aligned">所屬類別</th>
+                <th class="center aligned">待改進內容</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td data-label="Name">James</td>
+                <td data-label="Age">24</td>
+                <td data-label="Job">Engineer</td>
+              </tr>
+              <tr>
+                <td data-label="Name">Jill</td>
+                <td data-label="Age">26</td>
+                <td data-label="Job">Engineer</td>
+              </tr>
+              <tr>
+                <td data-label="Name">Elyse</td>
+                <td data-label="Age">24</td>
+                <td data-label="Job">Designer</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
   </div>
 
-  <script>
-    //generate map
-    var map = new ol.Map({
-      target: 'map',
-      layers: [
-        new ol.layer.Tile({ //Google
-          source: new ol.source.XYZ({
-            crossOrigin: 'anonymous',
-            url: 'https://mt{0-3}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}',
-          })
-        }),
-      ],
-      view: new ol.View({
-        center: ol.proj.fromLonLat([121, 23.8]),
-        zoom: 7.5
-      })
-    });
-  </script>
 
-  <script>
-    //scrolling
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function(e) {
-        e.preventDefault();
 
-        document.querySelector(this.getAttribute('href')).scrollIntoView({
-          behavior: 'smooth'
-        });
-      });
-    });
-  </script>
+  <!----------------------------------------->
+
+  <script src='index.js'></script>
+  <script src='draw.js'></script>
+  <script src='loadJSON.js'></script>
+  <script src='map_function.js'></script>
+  <script src='detail.js'></script>
+  <script src='request.js'></script>
 
 </body>
 

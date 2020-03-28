@@ -1,75 +1,66 @@
-/* background */
-.demo-layout-transparent {
-  background: url('./assets/background.jpg') center / cover;
+#section1-1{
+  height: 86vh;
 }
-.demo-layout-transparent .mdl-layout__header,
-.demo-layout-transparent .mdl-layout__drawer-button {
-  /* This background is dark, so we set text to white. Use 87% black instead if
-     your background is light. */
-  color: white;
-}
-
-/* Rules for sizing the icon. */
-.material-icons.md-18 {
-  font-size: 18px;
-}
-
-.material-icons.md-24 {
-  font-size: 24px;
-}
-
-.material-icons.md-36 {
-  font-size: 36px;
-}
-
-.material-icons.md-48 {
-  font-size: 48px;
-}
-
-/* table full width. */
-.fullwidth {
+#map {
+  margin-top: 0vh;
+  margin-left: 0vw;
+  height: 100% ;
   width: 100%;
 }
-
-/* height full */
-.map {
-  height: calc(100vh - 240px);
+.mdl-layout-title{
+  font-family: '微軟正黑體';
+  font-size: 185%;
 }
 
-.title {
-  font-family: "微軟正黑體";
-  text-align: center;
+#section1-2{
+  height: 86vh;
+  overflow-y: scroll;
 }
-
-/* H1 color */
-h1 {
-    color: white;
-    font-family: "微軟正黑體";
+#table1 {
+  width: 96%;
+  margin-right: 15px;
+  margin-left: 15px;
 }
-
-/* view height 100% */
-.module {
-  height: 100vh; /* Use vh as a fallback for browsers that do not support Custom Properties */
-  height: calc(var(--vh, 1vh) * 100);
-  margin: 0 auto;
-  max-width: 100%;
+#selectbar{
+   font-family: '微軟正黑體';
+   margin-top: 10px;
+   margin-right: 15px;
+   margin-left: 15px;
 }
-
-/* view height 100% with header */
-.module_head {
-  height: calc(100vh - 70px); /* Use vh as a fallback for browsers that do not support Custom Properties */
-  margin: 0 auto;
-  max-width: 100%;
+#network{
+  font-weight: bold;
+  font-family: '微軟正黑體';
+  color: yellow;
+  visibility: hidden;
 }
-
-/* element view height 25% */
-.module25 {
-  align-items: center;
-  display: flex;
-  height: 25%;
-  justify-content: center;
+/* ------------color-------------- */
+.white{
+  background-color: rgb(255, 255, 255);
 }
-
-.section2 {
-  background-color: #FFFFFF !important
+.red1{
+  background-color: rgb(255, 232, 232);
+}
+.red2{
+  background-color: rgb(255, 213, 213);
+}
+.red3{
+  background-color: rgb(255, 194, 194);
+}
+.red4{
+  background-color: rgb(255, 175, 175);
+}
+.red5{
+  background-color: rgb(255, 156, 156);
+}
+.red6{
+  background-color: rgb(255, 137, 137);
+}
+.red7{
+  background-color: rgb(255, 118, 118);
+}
+.red8{
+  background-color: rgb(255, 99, 99);
+}
+.red9{
+  background-color: rgb(255, 80, 80);
 }
