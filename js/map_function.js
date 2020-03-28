@@ -280,18 +280,17 @@ if (select !== null) {
 }
 
 function add_interaction() {
-  //console.log(123);
-  map.addInteraction(select);
+  // map.addInteraction(select);
 }
 
 //del_interaction
 function del_interaction() {
-  map.removeInteraction(select);
+  // map.removeInteraction(select);
 }
 
 
 //----------------------------------------------------
-//"click"
+// "click"
 var featureName;
 var displayFeatureInfo = function(pixel) {
 
